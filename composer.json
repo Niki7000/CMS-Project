@@ -2,7 +2,7 @@
     "name": "xxyzv/cms-project",
     "autoload": {
         "psr-4": {
-            "Xxyzv\\CmsProject\\": "src/"
+            "CMS\\": "src/"
         }
     },
     "authors": [
