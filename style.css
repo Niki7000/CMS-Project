@@ -10,11 +10,11 @@ body {
 
 .container {
     background-color: #fff;
-    padding: 40px 60px;
+    padding: 40px 50px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    text-align: center;
     width: 320px;
+    text-align: center;
     animation: fadeIn 0.8s ease;
 }
 
@@ -23,19 +23,23 @@ h1 {
     margin-bottom: 30px;
 }
 
-a {
+.btn {
     display: block;
+    width: 100%;
     margin: 12px 0;
     padding: 12px;
     background-color: #0984e3;
     color: #fff;
     text-decoration: none;
+    border: none;
     border-radius: 10px;
-    transition: 0.3s;
+    font-size: 16px;
     font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-a:hover {
+.btn:hover {
     background-color: #74b9ff;
     transform: scale(1.05);
 }
@@ -47,6 +51,43 @@ a:hover {
 .guest:hover {
     background-color: #b2bec3;
     color: #2d3436;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 12px 0;
+    border: 2px solid #dfe6e9;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #f9fbfc;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-input::placeholder {
+    color: #b2bec3;
+}
+
+.form-input:focus {
+    border-color: #0984e3;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(9,132,227,0.2);
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #0984e3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 @keyframes fadeIn {
