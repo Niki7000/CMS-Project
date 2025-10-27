@@ -10,7 +10,7 @@ body {
 
 .container {
     background-color: #fff;
-    padding: 40px 50px;
+    padding: 10px 50px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     width: 320px;
@@ -88,6 +88,19 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%230984e3' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+select.form-input option {
+    color: #2d3436;
 }
 
 @keyframes fadeIn {
