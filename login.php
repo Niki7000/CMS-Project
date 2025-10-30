@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form action="login.php" method="POST">
+        <form action="decisionMaker.php" method="POST">
             <input type="hidden" name="login">
             <input type="email" name="email" class="form-input" placeholder="Email" required>
             <input type="password" name="password" class="form-input" placeholder="Password" required>
