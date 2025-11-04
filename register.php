@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Register</h1>
-        <form action="register.php" method="POST">
+        <form action="decisionMaker.php" method="POST">
             <input type="hidden" name="register">
             <input type="text" name="name" class="form-input" placeholder="Full Name" required>
             <input type="email" name="email" class="form-input" placeholder="Email" required>

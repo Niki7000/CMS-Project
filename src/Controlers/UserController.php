@@ -33,13 +33,48 @@
                 die("Wrong password.");
             }
 
-            echo "You have successfully logged in.";
+            echo("You have successfully logged in.");
             $this->setSession("userId", $user["id"]);
             $this->setSession("loggedIn", true);
         }
 
         public function register(array $data): void
         {
+            if( !isset($data['email']) || empty($data['email']))
+            {
+                die("You didn't enter your email address.");
+            }
 
+            $userModel = new User();
+
+            if($userModel->userExists($data['email']))
+            {
+                die("This user already exists. ");
+            }
+
+            if( !isset($data['name']) || empty($data['name']) )
+            {
+                die("You didn't enter your name. ");
+            }
+            if( !isset($data['password']) || empty($data['password']) )
+            {
+                die("You didn't enter your password. ");
+            }
+            if( !isset($data['confirmPassword']) || empty($data['confirmPassword']) )
+            {
+                die("You didn't confirm your password. ");
+            }
+            if( $data['password'] !== $data['confirmPassword'] )
+            {
+                die("Confirm password doesn't match original password. ");
+            }
+            if( !isset($data['role']) || empty($data['role']) )
+            {
+                die("You didn't enter your role. ");
+            }
+            
+            $password = password_hash($data['password'], PASSWORD_DEFAULT);
+
+            $userModel->addNewUser($data['email'], $password, $data['name'], $data['role']);
         }
     }
