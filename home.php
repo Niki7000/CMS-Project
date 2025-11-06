@@ -1,3 +1,9 @@
+<?php 
+    require_once "vendor/autoload.php"; 
+    use CMS\Models\Post;
+    use CMS\Models\User;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +35,7 @@
 
     <main class="main-content">
 
-        <div class="post">
+    <div class="post">
             <div class="post-header">
             <h2 class="post-title">Sample Post Title</h2>
             <h3 class="post-author">Author: Nikodin</h3>
@@ -48,6 +54,24 @@
                 Here’s another example post — every post appears below the previous one with clean spacing.
             </p>
         </div>
+        
+        <?php 
+                $postModel = new Post();
+                $allPosts = $postModel->getAllPosts();
+
+                $userModel = new User();
+        ?>
+        <?php foreach($allPosts as $post): ?>
+        <div class="post">
+            <div class="post-header">
+            <h2 class="post-title"><?= $post['title'] ?></h2>
+            <h3 class="post-author">Author: <?= ($userModel->getUserById($post['UserID']))['name'] ?></h3>
+            </div>
+            <p class="post-content">
+            This is a preview of the post content. It shows up under the navbar and is centered nicely.
+            </p>
+        </div>
+        <?php endforeach; ?>
 
     </main>
 

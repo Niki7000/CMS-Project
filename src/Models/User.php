@@ -22,6 +22,15 @@
             return $stmt->fetch();
         }
 
+        public function getUserById(int $id): array
+        {
+            $stmt = $this->connection->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }
+
         public function addNewUser(string $email, string $password, string $name, string $role): void
         {
             $stmt = $this->connection->prepare("INSERT INTO users(email, password, name, role) VALUES (:email, :password, :name, :role)");
