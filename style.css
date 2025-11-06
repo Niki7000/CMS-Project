@@ -109,6 +109,7 @@ select.form-input option {
     background-color: #f5f6fa;
 }
 
+
 .navbar {
     position: fixed;
     top: 0;
@@ -123,6 +124,7 @@ select.form-input option {
     z-index: 1000;
 }
 
+
 .filter-form {
     display: flex;
     align-items: center;
@@ -133,7 +135,7 @@ select.form-input option {
 .btn.small {
     padding: 8px 10px;
     font-size: 14px;
-    width: auto;
+    width: 140px;
 }
 
 .nav-right .btn.logout {
@@ -148,6 +150,18 @@ select.form-input option {
 
 .nav-right .btn.logout:hover {
     background-color: #ff7675;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-author {
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
 }
 
 .main-content {

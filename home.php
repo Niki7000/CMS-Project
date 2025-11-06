@@ -28,14 +28,27 @@
     </nav>
 
     <main class="main-content">
+
         <div class="post">
-            <h2>Sample Post Title</h2>
-            <p>This is a preview of the post content. It shows up under the navbar and is centered nicely.</p>
+            <div class="post-header">
+            <h2 class="post-title">Sample Post Title</h2>
+            <h3 class="post-author">Author: Nikodin</h3>
+            </div>
+            <p class="post-content">
+            This is a preview of the post content. It shows up under the navbar and is centered nicely.
+            </p>
         </div>
+
         <div class="post">
-            <h2>Another Post</h2>
-            <p>Here’s another example post — every post appears below the previous one with clean spacing.</p>
+            <div class="post-header">
+                <h2 class="post-title">Another Post</h2>
+                <h3 class="post-author">Author: Nikodin</h3>
+            </div>
+            <p class="post-content">
+                Here’s another example post — every post appears below the previous one with clean spacing.
+            </p>
         </div>
+
     </main>
 
 </body>
