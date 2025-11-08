@@ -11,4 +11,12 @@
 
             return $stmt->fetchAll();
         }
+
+        public function getAllCategoires(): array
+        {
+            $stmt = $this->connection->prepare("SELECT DISTINCT category FROM posts");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }
     }
