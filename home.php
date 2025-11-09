@@ -4,7 +4,8 @@
     use CMS\Models\User;
 
     $postModel = new Post();
-    $allPosts = $postModel->getAllPosts();
+    $posts = $postModel->getAllPosts();
+    $categories = $postModel->getAllCategoires();
     $userModel = new User();
 ?>
 
@@ -24,9 +25,9 @@
             <form action="home.php" method="GET" class="filter-form">
                 <select name="category" class="form-input small">
                     <option value="">All Categories</option>
-                    <option value="news">News</option>
-                    <option value="tech">Tech</option>
-                    <option value="lifestyle">Lifestyle</option>
+                    <?php foreach($categories as $category): ?>
+                    <option value="<?= $category[0] ?>"><?= $category[0] ?></option>
+                    <?php endforeach; ?>
                 </select>
                 <input type="text" name="tag" class="form-input small" placeholder="Filter by tag">
                 <button type="submit" class="btn small">Filter</button>
@@ -38,18 +39,55 @@
     </nav>
 
     <main class="main-content">
-        <?php foreach($allPosts as $post): ?>
+        <?php if(!isset($_GET['category']) || empty($_GET['category'])): ?>
+
+        <?php foreach($posts as $post): ?>
         <div class="post">
             <div class="post-header">
             <h2 class="post-title"><?= $post['title'] ?></h2>
             <h3 class="post-author">Author: <?= ($userModel->getUserById($post['UserID']))['name'] ?></h3>
             </div>
-            <p class="post-content">
+            <h4 class="post-content">
             <?= $post['description'] ?>
+            </h4>
+            <p class="post-content">
+            Category: <?= $post['category'] ?>
+            </p>
+            <p class="post-content">
+            Tags: <?= $post['tags'] ?>
+            </p>
+            <p class="post-content">
+            Date uploaded: <?= $post['date'] ?>
             </p>
         </div>
         <?php endforeach; ?>
 
+        <?php else: ?>
+
+        <?php foreach($posts as $post): ?>
+            <?php if( $_GET['category'] == $post['category']): ?>
+            <div class="post">
+            <div class="post-header">
+            <h2 class="post-title"><?= $post['title'] ?></h2>
+            <h3 class="post-author">Author: <?= ($userModel->getUserById($post['UserID']))['name'] ?></h3>
+            </div>
+            <h4 class="post-content">
+            <?= $post['description'] ?>
+            </h4>
+            <p class="post-content">
+            Category: <?= $post['category'] ?>
+            </p>
+            <p class="post-content">
+            Tags: <?= $post['tags'] ?>
+            </p>
+            <p class="post-content">
+            Date uploaded: <?= $post['date'] ?>
+            </p>
+            <?php endif; ?>
+        </div>
+        <?php endforeach; ?>
+
+        <?php endif; ?>
     </main>
 
 </body>
