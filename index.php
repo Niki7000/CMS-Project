@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="main-body">
     <div class="container">
         <h1>Welcome to my website!</h1>
         <a href="login.php" class="btn">Login</a>

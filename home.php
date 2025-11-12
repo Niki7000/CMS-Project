@@ -4,7 +4,6 @@
     use CMS\Models\User;
 
     $postModel = new Post();
-    $posts = $postModel->getAllPosts();
     $categories = $postModel->getAllCategoires();
     $userModel = new User();
 ?>
@@ -39,9 +38,16 @@
     </nav>
 
     <main class="main-content">
-        <?php if(!isset($_GET['category']) || empty($_GET['category'])): ?>
+        <?php 
+            if((!isset($_GET['category']) || empty($_GET['category'])) && (!isset($_GET['tag']) || empty($_GET['tag']))){
+                $finalPosts = $postModel->getAllPosts();
+            }
+            else{
+                $finalPosts = $postModel->getAllFilteredPosts($_GET);
+            } 
+        ?>
 
-        <?php foreach($posts as $post): ?>
+        <?php foreach($finalPosts as $post): ?>
         <div class="post">
             <div class="post-header">
             <h2 class="post-title"><?= $post['title'] ?></h2>
@@ -61,33 +67,7 @@
             </p>
         </div>
         <?php endforeach; ?>
-
-        <?php else: ?>
-
-        <?php foreach($posts as $post): ?>
-            <?php if( $_GET['category'] == $post['category']): ?>
-            <div class="post">
-            <div class="post-header">
-            <h2 class="post-title"><?= $post['title'] ?></h2>
-            <h3 class="post-author">Author: <?= ($userModel->getUserById($post['UserID']))['name'] ?></h3>
-            </div>
-            <h4 class="post-content">
-            <?= $post['description'] ?>
-            </h4>
-            <p class="post-content">
-            Category: <?= $post['category'] ?>
-            </p>
-            <p class="post-content">
-            Tags: <?= $post['tags'] ?>
-            </p>
-            <p class="post-content">
-            Date uploaded: <?= $post['date'] ?>
-            </p>
-            <?php endif; ?>
-        </div>
-        <?php endforeach; ?>
-
-        <?php endif; ?>
+        
     </main>
 
 </body>

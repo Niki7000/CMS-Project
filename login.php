@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="main-body">
     <div class="container">
         <h1>Login</h1>
         <form action="decisionMaker.php" method="POST">
