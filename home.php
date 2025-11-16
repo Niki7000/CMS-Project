@@ -65,6 +65,7 @@
             <p class="post-content">
             Date uploaded: <?= $post['date'] ?>
             </p>
+            <a href="postDetails.php/?id=<?= $post['id'] ?>">Post details</a>
         </div>
         <?php endforeach; ?>
         
