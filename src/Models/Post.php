@@ -45,4 +45,24 @@
 
             return $stmt->fetchAll();
         }
+
+        
+        public function postExists(int $id): bool
+        {
+            $stmt = $this->connection->prepare("SELECT * FROM posts WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            return $stmt->rowCount() > 0;
+        }
+        
+
+        public function getPostsById(int $id): array
+        {
+            $stmt = $this->connection->prepare("SELECT * FROM posts WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }
     }

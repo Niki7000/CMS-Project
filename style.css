@@ -212,7 +212,90 @@ select.form-input option {
     line-height: 1.6;
 }
 
+.post-details-wrapper {
+          min-height: 100vh;
+          background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+          padding: 40px 20px;
+          box-sizing: border-box;
+      }
 
+.post-card {
+          max-width: 900px;
+          margin: 0 auto;
+          background: #ffffff;
+          border-radius: 14px;
+          padding: 36px;
+          box-shadow: 0 12px 30px rgba(7,22,58,0.10);
+          border-left: 6px solid #0984e3;
+          border-bottom: 6px solid #0984e3;
+        }
+
+.post-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 20px;
+          flex-wrap: wrap;
+      }
+
+.post-title {
+          margin: 0;
+          font-size: 2.2rem;
+          line-height: 1.05;
+          color: #16213e;
+      }
+
+.post-meta {
+          text-align: right;
+          min-width: 170px;
+      }
+
+.post-details-author {
+          margin: 0 0 8px;
+          color: #6b6f76;
+          font-style: italic;
+      }
+
+.post-date {
+          margin: 0;
+          color: #9ba0a6;
+          font-size: 0.95rem;
+      }
+
+.post-body {
+          margin-top: 20px;
+          color: #3f4850;
+          font-size: 1.05rem;
+          line-height: 1.8;
+      }
+
+.back-row {
+          max-width: 900px;
+          margin: 0 auto 18px;
+      }
+
+.btn.back-btn {
+          display: inline-block;
+          width: auto;
+          padding: 10px 14px;
+          border-radius: 10px;
+          background: rgba(255,255,255,0.85);
+          color: #2d3436;
+          text-decoration: none;
+          box-shadow: 0 6px 18px rgba(9,132,227,0.08);
+          border: 1px solid rgba(9,132,227,0.12);
+      }
+
+.btn.back-btn:hover {
+          transform: translateY(-1px);
+      }
+
+@media (max-width: 760px) {
+          .post-card { padding: 22px; border-left-width: 4px; }
+          .post-title { font-size: 1.6rem; }
+          .post-meta { text-align: left; min-width: 0; margin-top: 10px; }
+      }
+    
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
