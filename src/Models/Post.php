@@ -65,4 +65,24 @@
 
             return $stmt->fetch();
         }
+
+        public function addPostNoImage(array $data): void
+        {
+            $stmt = $this->connection->prepare("INSERT INTO posts(title, description, category, tags, date, UserID) VALUES (:title,:desc,:category,:tags,:date,:userID)");
+            $stmt->bindParam(":title", $data['title']);
+            $stmt->bindParam(":desc", $data['description']);
+            $stmt->bindParam(":category", $data['category']);
+            $stmt->bindParam(":tags", $data['tags']);
+            $date = date("Y-m-d");
+            $stmt->bindParam(":date", $date);
+            $userID = 5;
+            $stmt->bindParam(":userID", $userID);
+            
+            $stmt->execute();
+        }
+
+        public function addPostImage(array $data): void
+        {
+
+        }
     }

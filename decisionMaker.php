@@ -1,6 +1,7 @@
 <?php
 
-    use CMS\Controlers\UserController;
+use CMS\Controlers\PostController;
+use CMS\Controlers\UserController;
     require_once "vendor/autoload.php";
 
     if(session_status() === PHP_SESSION_NONE)
@@ -18,4 +19,10 @@
     {
         $userController = new UserController();
         $userController->register($_POST);
+    }
+
+    if( isset($_POST['post']) )
+    {
+        $postController = new PostController();
+        $postController->upload($_POST);
     }
