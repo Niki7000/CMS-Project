@@ -26,3 +26,9 @@ use CMS\Controlers\UserController;
         $postController = new PostController();
         $postController->upload($_POST);
     }
+
+    if( isset($_POST['edit']) )
+    {
+        $postController = new PostController();
+        $postController->edit($_POST);
+    }

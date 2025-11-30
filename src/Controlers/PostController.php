@@ -31,4 +31,9 @@
                 echo("Post added successfully. ");
             }
         }
+
+        public function edit(array $data):void
+        {
+            die("Edit.");
+        }
     }

@@ -60,8 +60,7 @@
         <br>
         <?php if( (isset($_SESSION['userId']) && $_SESSION['userId'] == $user['id'])
         || (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') ): ?>
-        <form action="postDetails.php/?postId="<?= $post['id'] ?>></form>
-        <a href="#"><button class="btn small">Edit</button></a>
+            <a href="/CMS-Project/editPost.php/?id=<?= $post['id'] ?>"><button class="btn small">Edit</button></a>
         <?php endif; ?>
         
 
