@@ -3,6 +3,11 @@
     use CMS\Models\Post;
     use CMS\Models\User;
 
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+
     $postModel = new Post();
     $categories = $postModel->getAllCategoires();
     $userModel = new User();
@@ -22,7 +27,7 @@
     <nav class="navbar">
         <div class="nav-left">
             <form action="home.php" method="GET" class="filter-form">
-                <select name="category" class="form-input small">
+                <select name="category" class="form-input small" style="margin-left: 20px;">
                     <option value="">All Categories</option>
                     <?php foreach($categories as $category): ?>
                     <option value="<?= $category[0] ?>"><?= $category[0] ?></option>
@@ -33,8 +38,14 @@
             </form>
         </div>
         <div class="nav-right">
-            <a href="logout.php" class="btn logout">Log out</a>
+        <?php if( isset($_SESSION['userId']) ): ?>
+            <a href="addPost.php" class="btn small right">Add post</a>
+            <a href="logout.php" class="btn logout right">Log out</a>
+        <?php else: ?>
+            <a href="login.php" class="btn small right">Log in</a>
+        <?php endif; ?>
         </div>
+
     </nav>
 
     <main class="main-content">

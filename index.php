@@ -1,3 +1,11 @@
+<?php
+    require_once "vendor/autoload.php";
+    use CMS\Controlers\UserController;
+
+    $userController = new UserController();
+    $userController->logout();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

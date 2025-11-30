@@ -1,6 +1,17 @@
 <?php 
     require_once "vendor/autoload.php";
     use CMS\Models\Post;
+
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+
+    if( !isset($_SESSION['userId']) )
+    {
+        die("You can't access this page if you aren't logged in.");
+    }
+
     $postModel = new Post();
     $categories = $postModel->getAllCategoires(); 
 ?>

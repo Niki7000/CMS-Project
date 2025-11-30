@@ -33,9 +33,17 @@
                 die("Wrong password.");
             }
 
-            echo("You have successfully logged in.");
             $this->setSession("userId", $user["id"]);
             $this->setSession("loggedIn", true);
+            if($user['role'] == 'admin')
+            {
+                $this->setSession('role', 'admin');
+            }
+            else
+            {
+                $this->setSession("role", "editor");
+            }
+            header('Location: home.php');
         }
 
         public function register(array $data): void
@@ -76,5 +84,25 @@
             $password = password_hash($data['password'], PASSWORD_DEFAULT);
 
             $userModel->addNewUser($data['email'], $password, $data['name'], $data['role']);
+            $user = $userModel->getUserByEmail($data['email']);
+            
+            $this->setSession("userId", $user["id"]);
+            $this->setSession("loggedIn", true);
+            if($data['role'] == 'admin')
+            {
+                $this->setSession('role', 'admin');
+            }
+            else
+            {
+                $this->setSession('role', 'editor');
+            }
+            header('Location: home.php');
+        }
+
+        public function logout(): void
+        {
+            unset($_SESSION['userId']);
+            unset($_SESSION['loggedIn']);
+            unset($_SESSION['role']);
         }
     }

@@ -154,9 +154,13 @@ select.form-input option {
     width: 140px;
 }
 
+.nav-right{
+    display: flex;
+}
+
 .nav-right .btn.logout {
     background-color: #d63031;
-    padding: 8px 15px;
+    padding: 7px 15px;
     font-size: 14px;
     color: white;
     text-decoration: none;
@@ -165,6 +169,13 @@ select.form-input option {
 
 .nav-right .btn.logout:hover {
     background-color: #ff7675;
+}
+
+.right{
+            text-align: center;
+            width: 100px;
+            margin-top: 7px;
+            margin-right:20px;
 }
 
 .post-header {
